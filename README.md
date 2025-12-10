@@ -1,164 +1,95 @@
-Purple Bean Agro – B2B Coffee & Chicory Web Platform
+# Purple Bean Agro – B2B Coffee & Chicory Web Platform
 
-A full-stack, production-style React application designed to replicate real-world B2B product catalog and inquiry workflows for manufacturers, exporters, and bulk buyers.
+A modern, fully responsive B2B product catalogue and inquiry platform built using **React.js**, **Tailwind CSS**, **Framer Motion**, **React Router**, **JSON Server**, and **EmailJS**.  
+This project replicates real-world workflows used by manufacturers and exporters to showcase products, handle inquiries, and manage product listings.
 
-🚀 Overview
+---
 
-The Purple Bean Agro Web Platform is a modern, fully responsive product catalogue and inquiry system built using React.js, Tailwind CSS, Framer Motion, React Router, EmailJS, and JSON Server.
-It simulates how manufacturing companies showcase products, manage admin operations, and handle customer inquiries. 
+## 🚀 Overview
 
-Fullstack_project
+The Purple Bean Agro web application provides an interactive experience for importers, distributors, wholesalers, and private-label brands. It includes:
 
-The platform provides:
+- Advanced product filtering  
+- Category-based browsing  
+- Product detail modal  
+- Contact and inquiry systems  
+- A full Admin Panel with CRUD features  
 
-A dynamic product catalogue
+The backend is simulated using **JSON Server**, enabling seamless product data management and admin authentication.
 
-Multi-level filtering + search
+---
 
-Detailed product modals
+## ✨ Key Features
 
-Integrated email, WhatsApp, and scheduling options
+### 🛒 Product Catalogue
+- Multi-level filtering (category → subcategory → sub-subcategory)
+- Global search bar
+- Product detail modal containing:
+  - High-quality images  
+  - Features  
+  - Specifications  
+  - Request Quote button  
 
-A functional Admin Panel with full CRUD features
+### 🎨 Modern & Responsive UI
+- Built with React.js + Tailwind CSS  
+- Smooth animations (Framer Motion)  
+- Fully responsive layout  
+- Clean and structured UX  
 
-📌 Features
-🛒 Product Catalogue
+### 📩 Integrated Communication Tools
+- EmailJS contact form  
+- WhatsApp quick-chat integration  
+- Cal.com scheduling support  
 
-Multi-level product filtering
+### 🔐 Admin Panel (CMS System)
+- Admin login with session handling  
+- Add new products  
+- Edit product details  
+- Upload product images  
+- Delete outdated products  
+- Full CRUD operations via JSON Server  
 
-Instant keyword-based search
+---
 
-High-quality product modal with specs, features, and enquiry options
+## 🧱 Tech Stack
 
+**Frontend:**  
+React.js, Vite, Tailwind CSS, React Router, Framer Motion  
 
-Fullstack_project
+**Backend Simulation:**  
+JSON Server  
 
-🎨 Modern UI/UX
+**APIs & Integrations:**  
+EmailJS, WhatsApp API, Cal.com  
 
-Fully responsive interface
+**Tools:**  
+Git, VS Code  
 
-Smooth animations (Framer Motion)
+---
 
-Clean component-based architecture
+## 📂 Project Structure
 
-📩 Communication Tools
-
-EmailJS contact form
-
-WhatsApp quick-chat button
-
-Cal.com meeting scheduler
-
-
-Fullstack_project
-
-🔐 Admin Panel (CMS-like)
-
-Admin login + session handling
-
-Add, edit, delete products
-
-Upload images
-
-Manage specifications and features
-
-
-Fullstack_project
-
-🧱 Tech Stack
-Layer	Technologies
-Frontend	React.js, Vite, Tailwind CSS, React Router, Framer Motion
-Backend Simulation	JSON Server
-Communication APIs	EmailJS, WhatsApp API, Cal.com
-Tools	Git, VS Code
-📦 Project Structure
 PUPRLEBEANSITE/
 │── public/
 │── server/
-│   └── db.json
+│ └── db.json
 │── src/
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   ├── utils/
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
+│ ├── assets/
+│ ├── components/
+│ ├── pages/
+│ ├── services/
+│ ├── utils/
+│ ├── App.jsx
+│ ├── App.css
+│ ├── index.css
+│ └── main.jsx
 
+## ⚙️ Installation & Setup
 
-Fullstack_project
-
-⚙️ Setup & Installation
-1️⃣ Install Prerequisites
-
-Node.js
-
-Git
-
-JSON Server
-
-
-Fullstack_project
-
-2️⃣ Clone the Repository
-git clone <your-repo-url>
-cd purple-bean-agro
-
-3️⃣ Install Dependencies
+### **Install Dependencies**
+```bash
 npm install
 
-4️⃣ Start JSON Server
 json-server --watch server/db.json --port 5000
 
-5️⃣ Run the React App
 npm run dev
-
-🔄 Project Flow
-
-Initialize React (Vite) + Tailwind + Router + Framer Motion
-
-Configure JSON Server with collections:
-
-/products
-
-/admins
-
-/sessions
-
-Build UI components (Navbar, Hero, Product Cards, Modal, etc.)
-
-Implement global search & routing
-
-Create Admin Panel with full CRUD
-
-Integrate EmailJS + WhatsApp + Cal.com
-
-
-Fullstack_project
-
-🏁 Conclusion
-
-This project demonstrates how modern frontend tools can create a powerful digital B2B product platform with smooth navigation, real-time product management, and integrated communication tools. It forms a strong foundation for future expansion into e-commerce, multi-user systems, or backend integration.
-
-
-Fullstack_project
-
-📚 References
-
-Official documentation referenced throughout development:
-
-Node.js
-
-React.js
-
-JSON Server
-
-Tailwind CSS
-
-EmailJS
-
-Framer Motion
-
-Vite
