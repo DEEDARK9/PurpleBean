@@ -7,7 +7,6 @@ import AboutUs from '../components/AboutUs';
 import CallToAction from '../components/CTA';
 import SalesProcess from '../components/SalesProcess';
 import ProductCategoryPreview from '../components/Product';
-import Footer from '../components/Footer';
 
 const Home = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -24,10 +23,9 @@ const Home = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="overflow-hidden">
       <HeroSection />
       <AboutUs />
-       <CallToAction />
+      <CallToAction />
       <SalesProcess />
       <ProductCategoryPreview />
-      <Footer />
 
       {/* Scroll to top */}
       <button
@@ -41,7 +39,7 @@ const Home = () => {
 
       {/* WhatsApp CTA */}
       <a
-        href="https://wa.me/918101287339?text=Hello%20Purple%20Bean%2C%20I%27m%20interested%20in%20your%20products."
+        href="https://wa.me/919798786431?text=Hello%20Purple%20Bean%2C%20I%27m%20interested%20in%20your%20products."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"

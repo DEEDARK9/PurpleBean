@@ -57,21 +57,21 @@ const Contact = () => {
           });
         }, 3000);
       } else {
-        // Fallback to mailto if automatic sending fails
+        // Fallback to mail to if automatic sending fails
         const subject = encodeURIComponent(`Contact Form Submission - ${formData.subject || 'General Inquiry'}`);
         const body = encodeURIComponent(
           `New contact form submission from Purple Bean Agro website:
 
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || 'Not provided'}
-Subject: ${formData.subject}
+          Name: ${formData.name}
+          Email: ${formData.email}
+          Company: ${formData.company || 'Not provided'}
+          Subject: ${formData.subject}
 
-Message:
-${formData.message}
+          Message:
+          ${formData.message}
 
----
-This message was sent from the Purple Bean Agro contact form.`
+          ---
+          This message was sent from the Purple Bean Agro contact form.`
         );
         
         const mailtoLink = `mailto:ayushv3533e@gmail.com?subject=${subject}&body=${body}`;
@@ -96,16 +96,16 @@ This message was sent from the Purple Bean Agro contact form.`
       const body = encodeURIComponent(
         `New contact form submission from Purple Bean Agro website:
 
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || 'Not provided'}
-Subject: ${formData.subject}
+          Name: ${formData.name}
+          Email: ${formData.email}
+          Company: ${formData.company || 'Not provided'}
+          Subject: ${formData.subject}
 
-Message:
-${formData.message}
+          Message:
+          ${formData.message}
 
----
-This message was sent from the Purple Bean Agro contact form.`
+          ---
+          This message was sent from the Purple Bean Agro contact form.`
       );
       
       const mailtoLink = `mailto:ayushv3533e@gmail.com?subject=${subject}&body=${body}`;
@@ -131,7 +131,6 @@ This message was sent from the Purple Bean Agro contact form.`
     link.click();
     document.body.removeChild(link);
   };
-
 
   const handleScheduleCall = () => {
     const subject = encodeURIComponent('Schedule a Call - Purple Bean Agro');

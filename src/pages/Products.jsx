@@ -1,13 +1,69 @@
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { useState,useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { ArrowRight, Star, CheckCircle, ChevronDown, ChevronRight } from 'lucide-react';
 import ProductModal from '../components/ProductModal';
-import { products, categoryStructure, categories } from '../data';
 import { ArrowUp, MessageCircle, Loader2 } from 'lucide-react';
+import { endpoints } from '../services/api';
+import { filterProducts } from '../utils/productFilter';
+
+const buildCategoryStructure = (items = []) => {
+  return items.reduce((acc, product) => {
+    if (!product?.category) {
+      return acc;
+    }
+
+    const { category, subcategory, subSubcategory } = product;
+
+    if (!acc[category]) {
+      if (subcategory && subSubcategory) {
+        acc[category] = { [subcategory]: [subSubcategory] };
+      } else if (subcategory) {
+        acc[category] = [subcategory];
+      } else {
+        acc[category] = [];
+      }
+      return acc;
+    }
+
+    if (subcategory && subSubcategory) {
+      if (Array.isArray(acc[category])) {
+        const existingArray = acc[category];
+        acc[category] = existingArray.reduce((map, item) => {
+          map[item] = [];
+          return map;
+        }, {});
+      }
+
+      if (!acc[category][subcategory]) {
+        acc[category][subcategory] = [];
+      }
+      if (!acc[category][subcategory].includes(subSubcategory)) {
+        acc[category][subcategory].push(subSubcategory);
+      }
+    } else if (subcategory) {
+      if (Array.isArray(acc[category])) {
+        if (!acc[category].includes(subcategory)) {
+          acc[category].push(subcategory);
+        }
+      } else if (typeof acc[category] === 'object' && acc[category] !== null) {
+        if (!acc[category][subcategory]) {
+          acc[category][subcategory] = [];
+        }
+      }
+    }
+
+    return acc;
+  }, {});
+};
 
 
 
 const Products = ({ searchTerm = '' }) => {
+  const [productsData, setProductsData] = useState([]);
+  const [isProductsLoading, setIsProductsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState('');
+  const [isFiltering, setIsFiltering] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [selectedSubSubcategory, setSelectedSubSubcategory] = useState('');
@@ -16,13 +72,45 @@ const Products = ({ searchTerm = '' }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const categoryStructure = useMemo(() => buildCategoryStructure(productsData), [productsData]);
+  const categories = useMemo(() => Object.keys(categoryStructure), [categoryStructure]);
+  const showLoader = isProductsLoading || (isFiltering && !isProductsLoading);
 
   useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 500);
+    if (!productsData.length) return;
+    setIsFiltering(true);
+    const timer = setTimeout(() => setIsFiltering(false), 400);
     return () => clearTimeout(timer);
-  }, [selectedCategory, selectedSubcategory, selectedSubSubcategory, searchTerm]);
+  }, [selectedCategory, selectedSubcategory, selectedSubSubcategory, searchTerm, productsData]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadProducts = async () => {
+      setIsProductsLoading(true);
+      setFetchError('');
+      try {
+        const response = await fetch(`${endpoints.products}?_sort=id&_order=asc`, {
+          signal: controller.signal,
+        });
+        if (!response.ok) {
+          throw new Error('Failed to load products');
+        }
+        const data = await response.json();
+        setProductsData(data);
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error(error);
+          setFetchError('Unable to load products right now. Please refresh.');
+        }
+      } finally {
+        setIsProductsLoading(false);
+      }
+    };
+
+    loadProducts();
+    return () => controller.abort();
+  }, []);
 
   
   useEffect(() => {
@@ -33,63 +121,49 @@ const Products = ({ searchTerm = '' }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const filteredProducts = products.filter((product) => {
-  const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
+  useEffect(() => {
+    if (selectedCategory !== 'All' && !categoryStructure[selectedCategory]) {
+      setSelectedCategory('All');
+      setSelectedSubcategory('');
+      setSelectedSubSubcategory('');
+      setExpandedCategory('');
+      setExpandedSubcategory('');
+    }
+  }, [categoryStructure, selectedCategory]);
 
-  let matchesSubcategory = true;
-  let matchesSubSubcategory = true;
+  const filteredProducts = useMemo(() => {
+    const dataset = filterProducts(productsData, searchTerm);
 
-  const selectedStructure = categoryStructure[selectedCategory];
+    return dataset.filter((product) => {
+      const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
+      const matchesSubcategory = !selectedSubcategory || product.subcategory === selectedSubcategory;
+      const matchesSubSubcategory =
+        !selectedSubSubcategory || product.subSubcategory === selectedSubSubcategory;
 
-  if (selectedSubcategory) {
-  if (
-    typeof selectedStructure === 'object' &&
-    !Array.isArray(selectedStructure)
-  ) {
-    matchesSubcategory = product.subcategory === selectedSubcategory;
-  } else if (Array.isArray(selectedStructure)) {
-    // For categories like 'Plain Coffee' or 'Crystal Coffee'
-    matchesSubcategory = product.subcategory === selectedSubcategory;
-  }
-} 
-
-
-  if (
-    selectedSubSubcategory &&
-    selectedStructure &&
-    typeof selectedStructure[selectedSubcategory] === 'object' &&
-    Array.isArray(selectedStructure[selectedSubcategory])
-  ) {
-    matchesSubSubcategory = product.subSubcategory === selectedSubSubcategory;
-  }
-
-  const matchesSearch =
-    !searchTerm ||
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (product.subcategory &&
-      product.subcategory.toLowerCase().includes(searchTerm.toLowerCase()));
-
-  return (
-    matchesCategory &&
-    matchesSubcategory &&
-    matchesSubSubcategory &&
-    matchesSearch
-  );
-});
+      return matchesCategory && matchesSubcategory && matchesSubSubcategory;
+    });
+  }, [
+    productsData,
+    searchTerm,
+    selectedCategory,
+    selectedSubcategory,
+    selectedSubSubcategory,
+  ]);
 
 
 
   const handleCategoryClick = (category) => {
     const subcategories = categoryStructure[category];
+    const hasArraySubcategories = Array.isArray(subcategories) && subcategories.length > 0;
+    const hasNestedSubcategories =
+      typeof subcategories === 'object' && subcategories !== null && Object.keys(subcategories).length > 0;
 
-    if (Array.isArray(subcategories) && subcategories.length > 0) {
+    if (hasArraySubcategories) {
       setExpandedCategory(expandedCategory === category ? '' : category);
       setSelectedCategory(category);
       setSelectedSubcategory('');
       setSelectedSubSubcategory('');
-    } else if (typeof subcategories === 'object' && Object.keys(subcategories).length > 0) {
+    } else if (hasNestedSubcategories) {
       setExpandedCategory(expandedCategory === category ? '' : category);
       setSelectedCategory(category);
       setSelectedSubcategory('');
@@ -105,7 +179,11 @@ const Products = ({ searchTerm = '' }) => {
   };
 
   const handleSubcategoryClick = (subcategory) => {
-    const subSubcategories = categoryStructure[selectedCategory][subcategory];
+    const subcategories = categoryStructure[selectedCategory];
+    const subSubcategories =
+      typeof subcategories === 'object' && subcategories !== null
+        ? subcategories[subcategory] || []
+        : [];
 
     if (Array.isArray(subSubcategories) && subSubcategories.length > 0) {
       setExpandedSubcategory(expandedSubcategory === subcategory ? '' : subcategory);
@@ -352,7 +430,7 @@ const Products = ({ searchTerm = '' }) => {
                   )}
                   {searchTerm && (
                     <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Search: "{searchTerm}"
+                      Search: &ldquo;{searchTerm}&rdquo;
                     </span>
                   )}
                   <button
@@ -377,7 +455,12 @@ const Products = ({ searchTerm = '' }) => {
       {/* Products Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {loading ? (
+          {fetchError && (
+            <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+              {fetchError}
+            </div>
+          )}
+          {showLoader ? (
             <div className="flex justify-center items-center h-64">
               <Loader2 className="animate-spin h-10 w-10 text-primary-600" />
             </div>
@@ -489,11 +572,11 @@ const Products = ({ searchTerm = '' }) => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Can't Find What You're Looking For?
+              Can&apos;t Find What You&apos;re Looking For?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               We offer custom formulations and private labeling services. 
-              Let us know your specific requirements and we'll create the perfect solution.
+              Let us know your specific requirements and we&apos;ll create the perfect solution.
             </p>
             <motion.button
               onClick={handleScheduleCall}
@@ -536,6 +619,10 @@ const Products = ({ searchTerm = '' }) => {
       />
     </motion.div>
   );
+};
+
+Products.propTypes = {
+  searchTerm: PropTypes.string,
 };
 
 export default Products;

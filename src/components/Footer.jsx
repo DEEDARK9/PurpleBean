@@ -127,7 +127,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-600 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">+91-8101287339</span>
+                <span className="text-gray-400 text-sm">+91-9798786431</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary-600 flex-shrink-0" />
@@ -146,7 +146,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Purple Bean Agro. All rights reserved.
+              © 2025 Purple Bean Agro. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">

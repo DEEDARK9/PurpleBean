@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo1.png';
 import { Menu, X, Search } from 'lucide-react';
-import { filterItems, products } from '../data.js';
 
 const Navbar = ({ onSearch, searchTerm, onClearSearch }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm || '');
-  const [searchResults, setSearchResults] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -25,23 +24,18 @@ const Navbar = ({ onSearch, searchTerm, onClearSearch }) => {
     setLocalSearchTerm(searchTerm || '');
   }, [searchTerm]);
 
-  useEffect(() => {
-    const results = filterItems(products, localSearchTerm);
-    setSearchResults(results);
-  }, [localSearchTerm]);
 
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Admin', path: '/admin' },
   ];
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setLocalSearchTerm(value);
-    const results = filterItems(products, value);
-    setSearchResults(results);
     if (onSearch) onSearch(value);
     if (value && location.pathname !== '/products') navigate('/products');
   };
@@ -73,7 +67,7 @@ const Navbar = ({ onSearch, searchTerm, onClearSearch }) => {
           
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Logo" className="h-48 w-30 object-contain" />
+            <img src={logo} alt="Purple Bean Agro" className="h-16 w-30 rounded-full object-contain" />
     
           </Link>
 
@@ -173,6 +167,12 @@ const Navbar = ({ onSearch, searchTerm, onClearSearch }) => {
       )}
     </motion.nav>
   );
+};
+
+Navbar.propTypes = {
+  onSearch: PropTypes.func,
+  onClearSearch: PropTypes.func,
+  searchTerm: PropTypes.string,
 };
 
 export default Navbar;

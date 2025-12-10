@@ -1,0 +1,271 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Butterscotch Flavoured Coffee",
+      "category": "Flavoured Coffee",
+      "subcategory": "Signature Blends",
+      "description": "A rich, buttery coffee infused with sweet butterscotch flavor",
+      "detailedDescription": "This blend offers a luscious combination of rich coffee and sweet, buttery butterscotch flavor. Perfect for indulgent coffee breaks and dessert-inspired menus.",
+      "image": "https://st.depositphotos.com/2363887/2571/i/450/depositphotos_25717699-stock-photo-cappuccino-mug-close-up-with.jpg",
+      "features": [
+        "Natural Butterscotch Flavor",
+        "Medium Roast",
+        "Bulk Packaging Available"
+      ],
+      "rating": 4.9,
+      "price": "Request Price",
+      "specifications": {
+        "Variant": "Strong Inst. Powder, Extra Strong Inst. Powder",
+        "Flavor Profile": "Butterscotch, Sweet, Buttery",
+        "Packaging": "Custom",
+        "Shelf Life": "12 months"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Agglomerated Instant Coffee",
+      "category": "Plain Coffee",
+      "subcategory": "Agglomerated",
+      "description": "Premium agglomerated instant coffee with rich crema",
+      "detailedDescription": "Designed for instant beverage applications that still demand quality, this agglomerated coffee dissolves quickly while keeping a rich crema and bold taste.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2022/7/AL/LU/WU/152980179/agglomerated-instant-pure-coffee-powder.jpg",
+      "features": [
+        "Instant Dissolution",
+        "Rich Crema",
+        "Available in Bulk Packs"
+      ],
+      "rating": 4.7,
+      "price": "From ₹480/kg",
+      "specifications": {
+        "Bean Type": "Robusta Blend",
+        "Process": "Agglomerated",
+        "Packaging": "1kg, 5kg, 25kg",
+        "Shelf Life": "18 months"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Freeze Dried Arabica",
+      "category": "Plain Coffee",
+      "subcategory": "Freeze Dried",
+      "description": "Single origin freeze dried coffee with delicate aroma",
+      "detailedDescription": "Freeze drying locks in the delicate floral aroma of this 100% Arabica coffee, delivering a premium instant experience.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2024/1/380859936/VU/AT/HK/34750758/coffee-3-500x500.jpg",
+      "features": [
+        "Single Origin Arabica",
+        "Freeze Dried",
+        "Specialty Grade"
+      ],
+      "rating": 4.9,
+      "price": "From ₹780/kg",
+      "specifications": {
+        "Bean Type": "Arabica",
+        "Process": "Freeze Dried",
+        "Packaging": "500g, 2kg",
+        "Shelf Life": "24 months"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Tea Premix - Cafe Style",
+      "category": "Premix",
+      "subcategory": "Tea Premix",
+      "subSubcategory": "Cafe Premix",
+      "description": "Authentic cafe style tea premix for vending and HoReCa",
+      "detailedDescription": "Balanced chai premix that blends strong Assam CTC tea with milk solids and natural spices for consistent cups in vending machines or cafes.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2022/10/KM/LT/UO/5215417/shutterstock-210365299-1-500x500.jpeg",
+      "features": [
+        "Works with Vending Machines",
+        "Made with Natural Spices",
+        "Consistent Output"
+      ],
+      "rating": 4.6,
+      "price": "Request Price",
+      "specifications": {
+        "Application": "Cafe Premix",
+        "Serving Size": "20g",
+        "Packaging": "1kg, 5kg",
+        "Shelf Life": "9 months"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Tea Premix - Vending Machine",
+      "category": "Premix",
+      "subcategory": "Tea Premix",
+      "subSubcategory": "Vending Machine Premix",
+      "description": "High throughput premix tailored for vending operations",
+      "detailedDescription": "Optimized blend that flows well in vending systems and delivers consistent taste even at high volumes.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2022/10/KM/LT/UO/5215417/shutterstock-210365299-1-500x500.jpeg",
+      "features": [
+        "No Caking Formula",
+        "Balanced Sweetness",
+        "Fast Dispensing"
+      ],
+      "rating": 4.5,
+      "price": "Request Price",
+      "specifications": {
+        "Application": "Vending Machine",
+        "Serving Size": "14g",
+        "Packaging": "500g, 1kg",
+        "Shelf Life": "9 months"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Green Coffee Beans - Arabica Cherry",
+      "category": "Coffee Beans",
+      "subcategory": "Green Beans",
+      "subSubcategory": "Arabica Cherry",
+      "description": "High elevation Arabica cherry beans ideal for specialty roasting",
+      "detailedDescription": "Shade grown cherries processed using washed method to retain acidity and sweetness. Perfect for roasters who want a balanced cup profile.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/2/VL/EO/QQ/46954279/arabica-cherry-a-green-coffee-bean-500x500.jpg",
+      "features": [
+        "SCAA Score 84+",
+        "Washed Process",
+        "Full Traceability"
+      ],
+      "rating": 4.8,
+      "price": "From ₹520/kg",
+      "specifications": {
+        "Altitude": "1100 MASL",
+        "Processing": "Washed",
+        "Moisture": "11%",
+        "Screen Size": "15+"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Roasted Beans - Robusta Cherry AAA",
+      "category": "Coffee Beans",
+      "subcategory": "Roasted Beans",
+      "subSubcategory": "Robusta Cherry",
+      "description": "Bold roasted beans with chocolate finish",
+      "detailedDescription": "Custom roasted in small batches, delivering a bold crema-rich espresso base with chocolate and spice notes.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/9/341655843/LQ/ID/DU/143067805/roasted-coffee-beans-robusta-cherry-aaa-500x500.jpg",
+      "features": [
+        "Small Batch Roasted",
+        "Crema Rich",
+        "Ideal for Espresso"
+      ],
+      "rating": 4.7,
+      "price": "From ₹620/kg",
+      "specifications": {
+        "Roast": "Medium Dark",
+        "Processing": "Natural",
+        "Blend": "100% Robusta",
+        "Shelf Life": "6 months"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Instant Iced Tea - Lemon",
+      "category": "Tea",
+      "subcategory": "Iced Tea",
+      "description": "Zesty lemon iced tea premix for instant refreshments",
+      "detailedDescription": "Cold soluble instant iced tea premix packed with vitamin C and tangy lemon notes.",
+      "image": "https://4.imimg.com/data4/DB/EO/MY-29045197/organic-coffee-bean-500x500.jpg",
+      "features": [
+        "Dissolves in Cold Water",
+        "Vitamin C Fortified",
+        "Low Sugar Option"
+      ],
+      "rating": 4.4,
+      "price": "From ₹380/kg",
+      "specifications": {
+        "Serving": "12g",
+        "Brix": "9±1",
+        "Packaging": "500g, 1kg",
+        "Shelf Life": "12 months"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Tea Extract - Green",
+      "category": "Tea",
+      "subcategory": "Tea Extract",
+      "subSubcategory": "Green",
+      "description": "High potency green tea extract for nutraceuticals",
+      "detailedDescription": "Standardized extract with 50% polyphenols ideal for capsules, beverages or functional foods.",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/4/298120947/UG/BH/AV/8725392/green-tea-extract.jpeg",
+      "features": [
+        "50% Polyphenols",
+        "Spray Dried",
+        "Low Caffeine"
+      ],
+      "rating": 4.6,
+      "price": "Request Price",
+      "specifications": {
+        "Solubility": "Instant",
+        "Moisture": "<5%",
+        "Packaging": "25kg Fiber Drum",
+        "Shelf Life": "24 months"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Crystal Coffee",
+      "category": "Crystal Coffee",
+      "description": "Revolutionary crystal coffee with enhanced clarity and taste",
+      "detailedDescription": "Breakthrough crystallization delivers instant dissolution while maintaining exceptional clarity and pure coffee taste.",
+      "image": "https://kopikita.id/wp-content/uploads/2023/04/kopi-freeze-dried.jpg",
+      "features": [
+        "Crystal Clear",
+        "Instant Dissolution",
+        "Pure Taste",
+        "Innovative Technology"
+      ],
+      "rating": 4.9,
+      "price": "Request Price",
+      "specifications": {
+        "Process": "Advanced Crystallization",
+        "Clarity": "Crystal Clear",
+        "Dissolution": "Instant",
+        "Packaging": "500g, 5kg",
+        "Shelf Life": "24 months"
+      },
+      "isNew": true
+    },
+    {
+      "id": 12,
+      "name": "Cold Coffee Premix",
+      "category": "Flavoured Coffee",
+      "subcategory": "Ready To Drink",
+      "description": "Instant cold coffee premix with a rich creamy taste",
+      "detailedDescription": "Balanced with premium coffee and milk solids, this premix delivers the classic cold coffee taste instantly.",
+      "image": "https://st.depositphotos.com/2363887/2571/i/450/depositphotos_25717699-stock-photo-cappuccino-mug-close-up-with.jpg",
+      "features": [
+        "Instant Ready Mix",
+        "Creamy Texture",
+        "No Brewing Required"
+      ],
+      "rating": 4.8,
+      "price": "Request Price",
+      "specifications": {
+        "Variant": "Strong Inst. Powder, Extra Strong Inst. Powder",
+        "Flavor Profile": "Cold, Creamy, Rich",
+        "Packaging": "Custom",
+        "Shelf Life": "12 months"
+      }
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "email": "purplebeanagro@gmail.com",
+      "password": "Ayush@2004",
+      "name": "Site Admin"
+    }
+  ],
+  "sessions": [
+    {
+      "adminId": 1,
+      "email": "purplebeanagro@gmail.com",
+      "adminName": "Site Admin",
+      "isActive": true,
+      "createdAt": "2025-12-01T19:53:44.536Z",
+      "id": 1
+    }
+  ]
+}
