@@ -72,17 +72,18 @@ Git, VS Code
 PUPRLEBEANSITE/
 │── public/
 │── server/
-│ └── db.json
+│   └── db.json
 │── src/
-│ ├── assets/
-│ ├── components/
-│ ├── pages/
-│ ├── services/
-│ ├── utils/
-│ ├── App.jsx
-│ ├── App.css
-│ ├── index.css
-│ └── main.jsx
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+
 
 ## ⚙️ Installation & Setup
 
@@ -93,3 +94,4 @@ npm install
 json-server --watch server/db.json --port 5000
 
 npm run dev
+
